@@ -12,7 +12,7 @@ Its built on top of Django and relies on Django's URL dispatching, hence it coul
 # Requirements
 
 * Python (3.4)
-* Django (1.9)
+* Django (1.11)
 
 # Installation
 

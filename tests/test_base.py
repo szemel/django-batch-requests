@@ -24,6 +24,10 @@ class TestBase(TestCase):
         if settings.ADD_DURATION_HEADER:
             del batch_resp['headers'][settings.DURATION_HEADER_NAME]
 
+        # since Django 1.11 Content-Length is set for non-streaming responses
+        if 'Content-Length' in ind_resp['headers']:
+            del ind_resp['headers']['Content-Length']
+
         self.assertDictEqual(ind_resp, batch_resp, "Compatibility is broken!")
 
     def headers_dict(self, headers):
